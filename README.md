@@ -3,6 +3,7 @@
 ## A FAIRE
  - [ ] exploiter fragments Thymeleaf pour ajouter menus
  - [ ] mock ResultSet (https://github.com/mcrisc/mock-resultset)
+   - https://www.javacodegeeks.com/2018/09/java-mocking-resultset-using-mockito.html
  - [ ] intégrer fct de prodageo/jdbc4uemf (cf pom.xml)
 
 # Archives
