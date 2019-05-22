@@ -1,6 +1,7 @@
 # SQUELETTE APPLI CREE POUR FILR4MINIP 2019P
 
 ## A FAIRE
+ - [ ] exploiter fragments Thymeleaf pour ajouter menus
  - [ ] intégrer fct de prodageo/jdbc4uemf (cf pom.xml)
 
 # Archives
