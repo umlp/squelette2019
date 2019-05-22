@@ -1,4 +1,10 @@
-# Spring Boot Hello World Example with Thymeleaf
+# SQUELETTE APPLI CREE POUR FILR4MINIP 2019P
+
+## A FAIRE
+ - [ ] intégrer fct de prodageo/jdbc4uemf (cf pom.xml)
+
+# Archives
+## projet source : Spring Boot Hello World Example with Thymeleaf
 
 ## Guide
 https://hellokoding.com/spring-boot-hello-world-example-with-thymeleaf/
