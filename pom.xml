@@ -15,9 +15,19 @@
     </properties>
 
     <dependencies>
+               
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-thymeleaf</artifactId>
+        </dependency>
+        <!--
+            to be able to merge with https://github.com/prodageo/jdbc4uemf/ 
+            https://flywaydb.org/documentation/plugins/springboot
+        -->
+        <dependency>
+            <groupId>org.flywaydb</groupId>
+            <artifactId>flyway-core</artifactId>
+            <version>5.2.4</version>
         </dependency>
     </dependencies>
     <build>
