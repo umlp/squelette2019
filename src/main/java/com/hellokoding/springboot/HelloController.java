@@ -20,7 +20,9 @@ import java.util.ArrayList;
 import java.util.List;
  
 import com.hellokoding.ihm.PersonForm;
-import com.hellokoding.domaine.Person;
+// import com.hellokoding.domaine.Person;
+import com.hellokoding.ihm.PersonLine;
+
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -46,12 +48,12 @@ public class HelloController {
 	// txn : objet faisant le lien avec le SGBD
 	txnscript txn = new txnscript() ;
 	
-    private static List<Person> persons_table = new ArrayList<Person>();
+    private static List<PersonLine> persons_table = new ArrayList<PersonLine>();
 
 /*
     static {
-        persons_table.add(new Person("Bill", "Gates"));
-        persons_table.add(new Person("Steve", "Jobs"));
+        persons_table.add(new PersonLine("Bill", "Gates"));
+        persons_table.add(new PersonLine("Steve", "Jobs"));
     }
 */
     // Injectez (inject) via application.properties.
@@ -69,8 +71,8 @@ public class HelloController {
         return "index";
     }
  
-    @RequestMapping(value = { "/personList" }, method = RequestMethod.GET)
-    public String personList(Model model) throws Exception {
+    @RequestMapping(value = { "/associesList" }, method = RequestMethod.GET)
+    public String associesList(Model model) throws Exception {
 
 		// c'est la premiere fois qu'on affiche => initialiser l'element qui représente l'ecran
 		if ( persons_table.size() == 0 )
@@ -78,33 +80,33 @@ public class HelloController {
 			ResultSet rs = txn.remonterEnrAssocies() ;
 			
 			// charger la liste qui va etre presentee a l'ecran
-			logger.info( "personList : rs initialized" ) ;
+			logger.info( "associesList : rs initialized" ) ;
 			while ( rs.next() )
 			{
 			 String firstname = rs.getString ( "firstname" ) ;
 			 String surname = rs.getString ( "surname" ) ;
 
-			 persons_table.add(new Person(firstname, surname));
+			 persons_table.add(new PersonLine(firstname, surname));
 
-			 logger.info( "personList firstname : " + firstname );
-			 logger.info( "personList surname : " + surname );
+			 logger.info( "associesList firstname : " + firstname );
+			 logger.info( "associesList surname : " + surname );
 			}		
 		}
- 		model.addAttribute("persons", persons_table);
+ 		model.addAttribute("persons_table", persons_table);
 
-        return "personList";
+        return "associesList";
     }
  
-    @RequestMapping(value = { "/addPerson" }, method = RequestMethod.GET)
+    @RequestMapping(value = { "/addAssocie" }, method = RequestMethod.GET)
     public String showAddPersonPage(Model model) {
  
         PersonForm personForm = new PersonForm();
         model.addAttribute("personForm", personForm);
  
-        return "addPerson";
+        return "addAssocie";
     }
  
-    @RequestMapping(value = { "/addPerson" }, method = RequestMethod.POST)
+    @RequestMapping(value = { "/addAssocie" }, method = RequestMethod.POST)
     public String savePerson(Model model, //
             @ModelAttribute("personForm") PersonForm personForm) {
  
@@ -113,14 +115,14 @@ public class HelloController {
  
         if (firstName != null && firstName.length() > 0 //
                 && lastName != null && lastName.length() > 0) {
-            Person newPerson = new Person(firstName, lastName);
-            persons_table.add(newPerson);
+            PersonLine newPersonLine = new PersonLine(firstName, lastName);
+            persons_table.add(newPersonLine);
  
-            return "redirect:/personList";
+            return "redirect:/associesList";
         }
  
         model.addAttribute("errorMessage", errorMessage);
-        return "addPerson";
+        return "addAssocie";
     }
  
 }

@@ -68,30 +68,7 @@ public class txnscript {
 
   public ResultSet remonterEnrReservation ( String emailAddress ) throws Exception
   {
-	 /*
-	String mockSelect =
-     "\"id\",\"parent_id\",\"creation_date\",\"name\",\"balance\"\r"
-	+"8,,2000-03-01,\"John McHidden\",310\r"
-	+"9,,2005-04-01,\"Jane McFound\",-256\r"
-	+"10,,2007-10-01,\"von Hidden, Stuart\",180\r" ;
-	 */
-	 
-	// on suppose que la base contient 3 reservations
-	String mockHeader = "\"id\",\"parent_id\",\"creation_date\",\"name\",\"balance\"" ;
-	String mockLine1  = "8,,2000-03-01,\"John McHidden\",310" ;
-	String mockLine2  = "9,,2005-04-01,\"Jane McFound\",-256" ;
-	String mockLine3  = "10,,2007-10-01,\"von Hidden, Stuart\",180" ;
-	 
-	 
-   	ResultSet rs = new MockResultSet( mockHeader , mockLine1 , mockLine2 ,  mockLine3 ); 
-
-	logger.info( "remonterEnrReservation : rs initialized" ) ;
-	while ( rs.next() )
-	{
-	 double balance = rs.getDouble ( "balance" ) ;
-	 logger.info( "remonterEnrReservation balance : " + balance);
-	}
-
+   	ResultSet rs = null ; 
 	return rs ;
   }
 
@@ -108,10 +85,9 @@ public class txnscript {
 	 
 	// on suppose que la base contient 3 reservations
 	String mockHeader =  "\"id\",\"birthdate\",\"firstname\",\"surname\",\"email_address\"\r" ;
-	String mockLine1  = "18,2000-03-01,\"John\",\"McHidden\",\"john@mchidden.com\"" ;
-	String mockLine2  = "19,2000-03-01,\"John\",\"McHidden\",\"jane@mchidden.com\"" ;
-	// String mockLine3  = "20,2000-03-01,\"John",\"McHidden\",\"junior@mchidden.com\"" ;
-	String mockLine3 = mockLine2 ;
+	String mockLine1  = "18,2000-03-01,\"Mickey\",\"DISNEY\",\"mickey@example.com\"" ;
+	String mockLine2  = "19,2000-05-06,\"Minnie\",\"DISNEY\",\"minnie@example.com\"" ;
+	String mockLine3  = "20,2010-12-21,\"Junior\",\"DISNEY\",\"junior@example.com\"" ;
 	
 	// exemple d'utilisation a faire dans HelloController.java
    	ResultSet rsTestLocal = new MockResultSet( mockHeader , mockLine1 , mockLine2 ,  mockLine3 ); 
