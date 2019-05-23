@@ -13,6 +13,10 @@ import commondb.mock.CSVLineSplitter ;
 import commondb.mock.MockResultSet ;
 import java.io.StringReader;
 
+// http://www.avajava.com/tutorials/lessons/how-do-i-escape-a-string-for-java.html
+// import org.apache.commons.io.FileUtils;
+// import org.apache.commons.lang.StringEscapeUtils;
+
 // pour journaliser
 import org.slf4j.Logger ;
 import org.slf4j.LoggerFactory ;
@@ -90,6 +94,41 @@ public class txnscript {
 
 	return rs ;
   }
+
+
+  public ResultSet remonterEnrAssocies ( ) throws Exception
+  {
+	 /*
+	String mockSelect =
+     "\"id\",\"birthdate\",\"firstname\",\"surname\",\"email_address\"\r"
+	+"18,2000-03-01,\"John McHidden\",310\r"
+	+"19,2005-04-01,\"Jane McFound\",-256\r"
+	+"20,2007-10-01,\"von Hidden, Stuart\",180\r" ;
+	 */
+	 
+	// on suppose que la base contient 3 reservations
+	String mockHeader =  "\"id\",\"birthdate\",\"firstname\",\"surname\",\"email_address\"\r" ;
+	String mockLine1  = "18,2000-03-01,\"John\",\"McHidden\",\"john@mchidden.com\"" ;
+	String mockLine2  = "19,2000-03-01,\"John\",\"McHidden\",\"jane@mchidden.com\"" ;
+	// String mockLine3  = "20,2000-03-01,\"John",\"McHidden\",\"junior@mchidden.com\"" ;
+	String mockLine3 = mockLine2 ;
+	
+	// exemple d'utilisation a faire dans HelloController.java
+   	ResultSet rsTestLocal = new MockResultSet( mockHeader , mockLine1 , mockLine2 ,  mockLine3 ); 
+
+	logger.info( "remonterEnrReservation : rs initialized" ) ;
+	while ( rsTestLocal.next() )
+	{
+	 String email_address = rsTestLocal.getString ( "email_address" ) ;
+	 logger.info( "remonterEnrReservation email_address : " + email_address);
+	}
+	rsTestLocal.close() ;
+
+   	ResultSet rs = new MockResultSet( mockHeader , mockLine1 , mockLine2 ,  mockLine3 ); 
+	return rs ;
+  }
+
+
 
   
 }

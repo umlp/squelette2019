@@ -46,13 +46,14 @@ public class HelloController {
 	// txn : objet faisant le lien avec le SGBD
 	txnscript txn = new txnscript() ;
 	
-    private static List<Person> persons = new ArrayList<Person>();
- 
+    private static List<Person> persons_table = new ArrayList<Person>();
+
+/*
     static {
-        persons.add(new Person("Bill", "Gates"));
-        persons.add(new Person("Steve", "Jobs"));
+        persons_table.add(new Person("Bill", "Gates"));
+        persons_table.add(new Person("Steve", "Jobs"));
     }
- 
+*/
     // Injectez (inject) via application.properties.
     @Value("${welcome.message}")
     private String message;
@@ -70,12 +71,27 @@ public class HelloController {
  
     @RequestMapping(value = { "/personList" }, method = RequestMethod.GET)
     public String personList(Model model) throws Exception {
-		
 
-		ResultSet rs = txn.remonterEnrReservation("mickey@example.com") ;
-	
-        model.addAttribute("persons", persons);
- 
+		// c'est la premiere fois qu'on affiche => initialiser l'element qui représente l'ecran
+		if ( persons_table.size() == 0 )
+		{		
+			ResultSet rs = txn.remonterEnrAssocies() ;
+			
+			// charger la liste qui va etre presentee a l'ecran
+			logger.info( "personList : rs initialized" ) ;
+			while ( rs.next() )
+			{
+			 String firstname = rs.getString ( "firstname" ) ;
+			 String surname = rs.getString ( "surname" ) ;
+
+			 persons_table.add(new Person(firstname, surname));
+
+			 logger.info( "personList firstname : " + firstname );
+			 logger.info( "personList surname : " + surname );
+			}		
+		}
+ 		model.addAttribute("persons", persons_table);
+
         return "personList";
     }
  
@@ -98,7 +114,7 @@ public class HelloController {
         if (firstName != null && firstName.length() > 0 //
                 && lastName != null && lastName.length() > 0) {
             Person newPerson = new Person(firstName, lastName);
-            persons.add(newPerson);
+            persons_table.add(newPerson);
  
             return "redirect:/personList";
         }
