@@ -12,6 +12,11 @@
    - https://www.baeldung.com/java-convert-reader-to-string : StringReader("cvs like text") en place de InputStreamReader
  - [ ] intégrer fct de prodageo/jdbc4uemf (cf pom.xml)
  - [ ] encoding dans fichier application.properties
+ - [ ] afficher une image
+   - https://stackoverflow.com/questions/32798972/java-web-application-spring-boot-locating-images : via ThymeLeaf !
+ - [ ] afficher un plan GoogleMap
+ - [ ] renommer les classes utilisées par ThymeLeaf afin qu'elle aient une sémantique : abstraction de l'IHM
+   - Person => PersonLine / Name => NameCell, ...
 
 # Archives
 ## projet source : Spring Boot Hello World Example with Thymeleaf
