@@ -13,6 +13,7 @@
  - [ ] intégrer fct de prodageo/jdbc4uemf (cf pom.xml)
  - [ ] encoding dans fichier application.properties
  - [ ] afficher une image
+   - https://stackoverflow.com/questions/32798972/java-web-application-spring-boot-locating-images : via ThymeLeaf !
  - [ ] afficher un plan GoogleMap
 
 # Archives
