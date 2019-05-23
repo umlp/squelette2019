@@ -34,7 +34,7 @@ import org.slf4j.LoggerFactory ;
 // pour utiliser l'interface avec la BD
 import java.util.Date;
 // import libinsa.txnscriptUtil ;
-import lib.txnscript;
+import com.hellokoding.persistance.txnscript;
 // types retournés par les opération txnscript
 import java.sql.ResultSet;
 
