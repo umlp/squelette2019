@@ -15,6 +15,8 @@
  - [ ] afficher une image
    - https://stackoverflow.com/questions/32798972/java-web-application-spring-boot-locating-images : via ThymeLeaf !
  - [ ] afficher un plan GoogleMap
+ - [ ] renommer les classes utilisées par ThymeLeaf afin qu'elle aient une sémantique : abstraction de l'IHM
+   - Person => PersonLine / Name => NameCell, ...
 
 # Archives
 ## projet source : Spring Boot Hello World Example with Thymeleaf
