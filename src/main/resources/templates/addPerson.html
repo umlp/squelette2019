@@ -8,17 +8,17 @@
 		<div th:replace="fragments :: headerbodies"></div>
 		
 		<div class="container">
-			  <h1>Ajouter une personne dans l'annuaire:</h1>
+			  <h1>Ajouter un associé dans l'annuaire:</h1>
 			   
 			  <form th:action="@{/addPerson}"
 				 th:object="${personForm}" method="POST">
-				 First Name:
+				 Prénom:
 				 <input type="text" th:field="*{firstName}" />    
 				 <br/>
-				 Last Name:
+				 Nom de famille:
 				 <input type="text" th:field="*{lastName}" />     
 				 <br/>
-				 <input type="submit" value="Create" />
+				 <input type="submit" value="Créer" />
 			  </form>
 			   
 			  <br/>
