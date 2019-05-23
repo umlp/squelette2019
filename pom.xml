@@ -29,6 +29,13 @@
             <artifactId>flyway-core</artifactId>
             <version>5.2.4</version>
         </dependency>
+
+		<!-- pour commondb -->
+		<dependency>
+			<groupId>commons-lang</groupId>
+			<artifactId>commons-lang</artifactId>
+			<version>2.6</version>
+		</dependency>
     </dependencies>
     <build>
         <plugins>

@@ -27,10 +27,25 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
+import org.slf4j.Logger ;
+import org.slf4j.LoggerFactory ;
+
+// pour utiliser l'interface avec la BD
+import java.util.Date;
+// import libinsa.txnscriptUtil ;
+import lib.txnscript;
+// types retournés par les opération txnscript
+import java.sql.ResultSet;
+
  
 @Controller
 public class HelloController {
  
+	Logger logger = LoggerFactory.getLogger(HelloController.class);
+	// txn : objet faisant le lien avec le SGBD
+	txnscript txn = new txnscript() ;
+	
     private static List<Person> persons = new ArrayList<Person>();
  
     static {
@@ -54,8 +69,11 @@ public class HelloController {
     }
  
     @RequestMapping(value = { "/personList" }, method = RequestMethod.GET)
-    public String personList(Model model) {
- 
+    public String personList(Model model) throws Exception {
+		
+
+		ResultSet rs = txn.remonterEnrReservation("mickey@example.com") ;
+	
         model.addAttribute("persons", persons);
  
         return "personList";

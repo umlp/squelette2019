@@ -1,33 +1,31 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 
+	<head th:replace="fragments :: headerfiles"></head> 
 
+	<body>
+	
+		<div th:replace="fragments :: headerbodies"></div>
+		
+		<div class="container">
+		  <h1>Annuaire</h1>
+		  <a href="addPerson">Ajouter une personne</a>
+		  <br/><br/>
+		  <div>
+			 <table border="1">
+				<tr>
+				   <th>Prénom</th>
+				   <th>Nom</th>
+				</tr>
+				<tr th:each ="person : ${persons}">
+				   <td th:utext="${person.firstName}">...</td>
+				   <td th:utext="${person.lastName}">...</td>
+				</tr>
+			 </table>
+		  </div>
+		</div> <!-- enf of page container -->
 
-   <head>
- 
-	  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-		integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-		crossorigin="anonymous"></link>
+		<div th:replace="fragments :: footerbodies"></div>
 
-      <meta charset="UTF-8" />
-      <title>Person List</title>
-      <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
-   </head>
-   <body>
-      <h1>Person List</h1>
-      <a href="addPerson">Add Person</a>
-      <br/><br/>
-      <div>
-         <table border="1">
-            <tr>
-               <th>First Name</th>
-               <th>Last Name</th>
-            </tr>
-            <tr th:each ="person : ${persons}">
-               <td th:utext="${person.firstName}">...</td>
-               <td th:utext="${person.lastName}">...</td>
-            </tr>
-         </table>
-      </div>
-   </body>
+		</body>
 </html>
