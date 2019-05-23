@@ -9,17 +9,17 @@
 		
 		<div class="container">
 			  <h1>Ajouter un associé dans l'annuaire:</h1>
-			   
-			  <form th:action="@{/addAssocie}"
-				 th:object="${personForm}" method="POST">
+
+			  <form th:action="@{/addAssocie}" method="POST">
 				 Prénom:
-				 <input type="text" th:field="*{firstName}" />    
+				 <input type="text" th:field="${personForm.firstName}" />    
 				 <br/>
 				 Nom de famille:
-				 <input type="text" th:field="*{lastName}" />     
+				 <input type="text" th:field="${personForm.lastName}" />     
 				 <br/>
 				 <input type="submit" value="Créer" />
 			  </form>
+
 			   
 			  <br/>
 			   
