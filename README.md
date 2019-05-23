@@ -12,6 +12,8 @@
    - https://www.baeldung.com/java-convert-reader-to-string : StringReader("cvs like text") en place de InputStreamReader
  - [ ] intégrer fct de prodageo/jdbc4uemf (cf pom.xml)
  - [ ] encoding dans fichier application.properties
+ - [ ] afficher une image
+ - [ ] afficher un plan GoogleMap
 
 # Archives
 ## projet source : Spring Boot Hello World Example with Thymeleaf
