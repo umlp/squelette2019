@@ -18,3 +18,5 @@ A titre d'illustration, quelques intuitions proposées dans des saisons précéd
  - easybill : Application mobile qui permet la gestion des dépenses d'un groupe de personnes.
  - insalerte : Application mobile complémentaire à Moodle et Agendas pour être alerté des notes ou des modifications de cours.
  - cineconnect : trouver le film et la séance qui convient à tout le monde
+
+ ![](https://i.imgur.com/bVVytD3.png)
